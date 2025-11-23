@@ -17,6 +17,7 @@ function App() {
   const timerRef = useRef(null);
   const [showSettings, setShowSettings] = useState(false);
   const [theme, setTheme] = useState('light');
+  const wakeLockRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -49,6 +50,31 @@ function App() {
     }
   };
 
+  // 請求 Wake Lock 防止螢幕關閉時暫停
+  const requestWakeLock = async () => {
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLockRef.current = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock activated');
+      }
+    } catch (err) {
+      console.log('Wake Lock error:', err);
+    }
+  };
+
+  // 釋放 Wake Lock
+  const releaseWakeLock = async () => {
+    if (wakeLockRef.current) {
+      try {
+        await wakeLockRef.current.release();
+        wakeLockRef.current = null;
+        console.log('Wake Lock released');
+      } catch (err) {
+        console.log('Wake Lock release error:', err);
+      }
+    }
+  };
+
   useEffect(() => {
     if (isActive && time > 0) {
       timerRef.current = setInterval(() => {
@@ -57,6 +83,7 @@ function App() {
     } else if (time === 0) {
       setIsActive(false);
       clearInterval(timerRef.current);
+      releaseWakeLock();
       playSound();
     }
 
@@ -73,11 +100,17 @@ function App() {
         // 忽略初始化錯誤
       });
     }
+    // 請求 Wake Lock 防止螢幕關閉時暫停
+    requestWakeLock();
     setIsActive(true);
   };
-  const handlePause = () => setIsActive(false);
+  const handlePause = () => {
+    releaseWakeLock();
+    setIsActive(false);
+  };
 
   const handleReset = () => {
+    releaseWakeLock();
     setIsActive(false);
     setTime(timerSettings[mode].time * 60);
   };
