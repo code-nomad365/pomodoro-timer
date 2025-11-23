@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     // 預先載入音訊
-    audioRef.current = new Audio('/pomodoro-timer/clock_bell.mp3');
+    audioRef.current = new Audio('/pomodoro-timer/128177__diarchangeli__cuckoo-clock.mp3');
     audioRef.current.load();
   }, []);
 
