@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Timer from './components/Timer';
 import Controls from './components/Controls';
-import TimerIllustration from './assets/timer-illustration.svg';
+import PomodoroIcon from './assets/pomodoro-icon.png';
 
 const DEFAULT_SETTINGS = {
   focus: { time: 25, label: '專注時間' },
@@ -181,7 +181,7 @@ function App() {
 
       <main>
         <div className="illustration-container" style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
-          <img src={TimerIllustration} alt="Timer Illustration" width="120" height="120" />
+          <img src={PomodoroIcon} alt="番茄鐘圖示" width="120" height="120" style={{ borderRadius: '20px' }} />
         </div>
         <Timer time={time} mode={timerSettings[mode].label} />
         <Controls
