@@ -28,9 +28,25 @@ function App() {
 
   // ... (keep playSound and other handlers same, but update logic where MODES was used)
 
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    // 預先載入音訊
+    audioRef.current = new Audio('/pomodoro-timer/clock_bell.mp3');
+    audioRef.current.load();
+  }, []);
+
   const playSound = () => {
-    const audio = new Audio('/pomodoro-timer/clock_bell.mp3');
-    audio.play();
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // 重置播放位置
+      audioRef.current.play().catch(error => {
+        console.log('Audio play failed:', error);
+        // 如果自動播放失敗，嘗試使用 Notification API 或震動
+        if ('vibrate' in navigator) {
+          navigator.vibrate([200, 100, 200]);
+        }
+      });
+    }
   };
 
   useEffect(() => {
@@ -47,7 +63,18 @@ function App() {
     return () => clearInterval(timerRef.current);
   }, [isActive, time]);
 
-  const handleStart = () => setIsActive(true);
+  const handleStart = () => {
+    // 在用戶互動時初始化音訊（解決手機瀏覽器限制）
+    if (audioRef.current) {
+      audioRef.current.play().then(() => {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }).catch(() => {
+        // 忽略初始化錯誤
+      });
+    }
+    setIsActive(true);
+  };
   const handlePause = () => setIsActive(false);
 
   const handleReset = () => {
