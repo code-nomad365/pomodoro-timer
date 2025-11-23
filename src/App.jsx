@@ -4,9 +4,9 @@ import Controls from './components/Controls';
 import TimerIllustration from './assets/timer-illustration.svg';
 
 const DEFAULT_SETTINGS = {
-  focus: { time: 25, label: 'Focus Time' },
-  shortBreak: { time: 5, label: 'Short Break' },
-  longBreak: { time: 10, label: 'Long Break' },
+  focus: { time: 25, label: '專注時間' },
+  shortBreak: { time: 5, label: '短休息' },
+  longBreak: { time: 10, label: '長休息' },
 };
 
 function App() {
@@ -141,7 +141,7 @@ function App() {
   return (
     <div className="app-container">
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '1rem' }}>
-        <h1>Pomodoro</h1>
+        <h1>番茄鐘</h1>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <button
             onClick={toggleTheme}
@@ -167,14 +167,14 @@ function App() {
             )}
           </button>
           <button
-          onClick={() => setShowSettings(true)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)' }}
-          aria-label="Settings"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
+            onClick={() => setShowSettings(true)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)' }}
+            aria-label="Settings"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
           </button>
         </div>
       </header>
@@ -194,7 +194,7 @@ function App() {
         />
 
         <div className="sound-selector" style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
-          <label htmlFor="sound-select" style={{ fontSize: '0.9rem' }}>Sound:</label>
+          <label htmlFor="sound-select" style={{ fontSize: '0.9rem' }}>提示音效：</label>
           <select
             id="sound-select"
             value={soundType}
@@ -212,10 +212,10 @@ function App() {
               cursor: 'pointer'
             }}
           >
-            <option value="chime">Chime</option>
-            <option value="bell">Bell</option>
-            <option value="digital">Digital</option>
-            <option value="custom">Custom (Upload MP3)</option>
+            <option value="chime">鈴聲</option>
+            <option value="bell">鐘聲</option>
+            <option value="digital">電子音</option>
+            <option value="custom">自訂音效（上傳 MP3）</option>
           </select>
         </div>
 
@@ -234,7 +234,7 @@ function App() {
                 transition: 'background 0.3s'
               }}
             >
-              Upload MP3
+              上傳 MP3
             </label>
             <input
               id="file-upload"
@@ -243,7 +243,7 @@ function App() {
               onChange={handleFileChange}
               style={{ display: 'none' }}
             />
-            {customSound && <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>File loaded</span>}
+            {customSound && <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>檔案已載入</span>}
           </div>
         )}
       </main>
@@ -258,10 +258,10 @@ function App() {
             background: 'var(--card-bg)', padding: '2rem', borderRadius: 'var(--radius-lg)',
             width: '90%', maxWidth: '400px', boxShadow: 'var(--shadow-soft)'
           }}>
-            <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Settings</h2>
+            <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>設定</h2>
 
             <div className="setting-item" style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Focus Time (minutes)</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>專注時間（分鐘）</label>
               <input
                 type="number"
                 value={timerSettings.focus.time}
@@ -271,7 +271,7 @@ function App() {
             </div>
 
             <div className="setting-item" style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Short Break (minutes)</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>短休息（分鐘）</label>
               <input
                 type="number"
                 value={timerSettings.shortBreak.time}
@@ -281,7 +281,7 @@ function App() {
             </div>
 
             <div className="setting-item" style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Long Break (minutes)</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>長休息（分鐘）</label>
               <input
                 type="number"
                 value={timerSettings.longBreak.time}
@@ -297,7 +297,7 @@ function App() {
                 borderRadius: '8px', fontWeight: '600'
               }}
             >
-              Done
+              完成
             </button>
           </div>
         </div>

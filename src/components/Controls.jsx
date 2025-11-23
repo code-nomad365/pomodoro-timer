@@ -9,27 +9,27 @@ const Controls = ({ isActive, onStart, onPause, onReset, onModeChange, currentMo
                     className={`mode-btn ${currentMode === 'focus' ? 'active' : ''}`}
                     onClick={() => onModeChange('focus')}
                 >
-                    Focus
+                    專注
                 </button>
                 <button
                     className={`mode-btn ${currentMode === 'shortBreak' ? 'active' : ''}`}
                     onClick={() => onModeChange('shortBreak')}
                 >
-                    Short Break
+                    短休息
                 </button>
                 <button
                     className={`mode-btn ${currentMode === 'longBreak' ? 'active' : ''}`}
                     onClick={() => onModeChange('longBreak')}
                 >
-                    Long Break
+                    長休息
                 </button>
             </div>
 
             <div className="action-buttons">
                 {!isActive ? (
-                    <button className="primary-btn" onClick={onStart}>Start</button>
+                    <button className="primary-btn" onClick={onStart}>開始</button>
                 ) : (
-                    <button className="secondary-btn" onClick={onPause}>Pause</button>
+                    <button className="secondary-btn" onClick={onPause}>暫停</button>
                 )}
                 <button className="icon-btn" onClick={onReset} aria-label="Reset">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
