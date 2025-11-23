@@ -29,7 +29,7 @@ function App() {
   // ... (keep playSound and other handlers same, but update logic where MODES was used)
 
   const playSound = () => {
-    const audio = new Audio('/clock_bell.mp3');
+    const audio = new Audio('/pomodoro-timer/clock_bell.mp3');
     audio.play();
   };
 
