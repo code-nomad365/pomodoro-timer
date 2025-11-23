@@ -1,0 +1,58 @@
+:root {
+  /* Light Theme (Default) */
+  --bg-color: #F5F7FA;
+  --card-bg: #FFFFFF;
+  --text-primary: #2D3748;
+  --text-secondary: #718096;
+  --primary-color: #A3BFFA; /* Soft Blue */
+  --primary-hover: #7F9CF5;
+  --accent-color: #F6AD55; /* Soft Orange for breaks */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --input-border: #E2E8F0;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1A202C;
+  --card-bg: #2D3748;
+  --text-primary: #F7FAFC;
+  --text-secondary: #A0AEC0;
+  --primary-color: #667EEA; /* Slightly deeper blue for dark mode */
+  --primary-hover: #5A67D8;
+  --accent-color: #ED8936;
+  --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --input-border: #4A5568;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+}

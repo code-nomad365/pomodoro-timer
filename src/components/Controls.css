@@ -1,0 +1,86 @@
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.mode-toggles {
+    display: flex;
+    background: #E2E8F0;
+    padding: 0.5rem;
+    border-radius: var(--radius-lg);
+    gap: 0.5rem;
+}
+
+.mode-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.mode-btn.active {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-soft);
+}
+
+.mode-btn:hover:not(.active) {
+    color: var(--text-primary);
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 1rem 3rem;
+    border-radius: var(--radius-lg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-soft);
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid #E2E8F0;
+}
+
+.secondary-btn:hover {
+    background: #F8FAFC;
+    transform: translateY(-2px);
+}
+
+.icon-btn {
+    padding: 1rem;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: #E2E8F0;
+    color: var(--text-primary);
+}

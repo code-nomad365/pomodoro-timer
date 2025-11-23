@@ -1,0 +1,38 @@
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timer-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    box-shadow:
+        20px 20px 60px #d1d9e6,
+        -20px -20px 60px #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.timer-text {
+    font-size: 4.5rem;
+    font-weight: 200;
+    color: var(--text-primary);
+    letter-spacing: -2px;
+}
+
+.timer-mode {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
